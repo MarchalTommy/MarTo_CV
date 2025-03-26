@@ -1,0 +1,89 @@
+<resources>
+    <string name="app_name">MarToCV</string>
+
+
+    <!--  ABOUT  -->
+    <string name="dialog_close">Fermer</string>
+    <string name="dialog_title_details">Détails</string>
+    <string name="empty_string" />
+
+    <string name="skill_desc_android">Mon cœur de métier depuis plus de 3 ans. J\'ai contribué au développement et à la modernisation d\'applications Android complexes pour des entreprises d\'envergure comme Sodexo, Total et ASO (Tour de France, Dakar).</string>
+    <string name="skill_desc_kotlin">Le langage que je privilégie pour sa concision et sa sécurité. Utilisé quotidiennement pour développer des fonctionnalités robustes et maintenir un code propre et performant, en exploitant ses dernières versions.</string>
+    <string name="skill_desc_java">Expérience solide en Java acquise sur des projets d\'envergure (Sodexo, Total Service), notamment pour la maintenance et la migration de code legacy vers des solutions Kotlin modernes.</string>
+    <string name="skill_desc_compose">Expertise dans la création d\'interfaces utilisateur modernes, réactives et performantes avec Jetpack Compose. Appliqué sur des projets variés (TdF, Dakar, projets Freelance) pour une expérience utilisateur fluide.</string>
+    <string name="skill_desc_koin">Framework d\'injection de dépendances privilégié pour sa simplicité et son intégration transparente avec Kotlin et Jetpack Compose, utilisé pour structurer les applications de manière claire et testable.</string>
+    <string name="skill_desc_gradle">Maîtrise de Gradle pour l\'automatisation des builds Android, incluant la migration de Groovy vers Kotlin DSL pour une meilleure maintenabilité et performance, comme réalisé sur le projet Dakar.</string>
+    <string name="skill_desc_git">Utilisation quotidienne de Git pour un versioning efficace, une collaboration fluide en équipe (merge, rebase, gestion de branches) et le maintien d\'un historique de projet clair.</string>
+    <string name="skill_desc_ci_cd">Mise en place et gestion de pipelines d\'Intégration et Déploiement Continus avec Azure DevOps et TeamCity pour automatiser les builds, les tests et les déploiements, garantissant qualité et rapidité.</string>
+    <string name="skill_desc_mvvm_mvi">Conception et implémentation d\'architectures MVVM et MVI claires, testables et maintenables, favorisant la séparation des responsabilités et la scalabilité des applications.</string>
+    <string name="skill_desc_modular_arch">Expérience dans la conception d\'architectures modulaires pour découpler les fonctionnalités, améliorer la réutilisabilité du code et faciliter la collaboration sur des projets d\'envergure (Dakar, projet freelance).</string>
+    <string name="skill_desc_refactoring">Passionné par l\'amélioration continue du code : refactoring de code legacy (Java vers Kotlin), réduction de la dette technique et application des principes SOLID pour un code plus propre et évolutif.</string>
+    <string name="skill_desc_testing">Pratique des tests unitaires et d\'intégration pour assurer la fiabilité et la non-régression des fonctionnalités développées.</string>
+
+    <string name="skill_desc_teamwork">Habitué à travailler en équipe Agile, je crois en la force du collectif pour atteindre les objectifs et livrer des produits de qualité.</string>
+    <string name="skill_desc_communication">Communication claire et proactive avec les membres de l\'équipe (développeurs, PO, designers) pour assurer une bonne compréhension et une collaboration efficace.</string>
+    <string name="skill_desc_rigor">Souci du détail et application rigoureuse des bonnes pratiques de développement pour garantir la qualité, la performance et la maintenabilité du code.</string>
+
+    <string name="skill_desc_english">Anglais technique et professionnel maîtrisé, permettant de lire la documentation, de communiquer efficacement avec des équipes internationales et de rester à jour sur les dernières technologies.</string>
+    <string name="skill_desc_german">Notions de base en allemand.</string>
+
+    <string name="hobby_desc_3d_printing">Allier créativité et technique en donnant vie à des objets numériques, de la modélisation à l\'impression.</string>
+    <string name="hobby_desc_photography">Capturer l\'instant et composer des images pour raconter une histoire ou simplement apprécier l\'esthétique du monde qui m\'entoure.</string>
+    <string name="hobby_desc_dnd">Explorer des mondes imaginaires, développer la créativité et la narration collaborative à travers le jeu de rôle.</string>
+    <string name="hobby_desc_hiking">Se ressourcer en pleine nature, relever des défis physiques modérés et découvrir de nouveaux paysages lors de randonnées.</string>
+    <string name="hobby_desc_climbing">Développer la concentration, la force et la stratégie en relevant le défi de l\'escalade, en salle comme en extérieur.</string>
+
+
+    <!--PROJETS-->
+    <string name="experience_title_dev">Développeur Android</string>
+    <string name="experience_title_freelance">Développeur Android Freelance</string>
+    <string name="experience_company_exomind">Exomind</string>
+    <string name="experience_desc_exomind">Pendant près de 3 ans chez Exomind, j\'ai été un acteur clé dans la modernisation et le développement d\'applications Android à fort trafic pour des clients prestigieux (Sodexo, ASO, Total). J\'ai activement participé à la migration de code legacy Java vers Kotlin/MVVM, à l\'intégration de Jetpack Compose et à l\'optimisation des processus de développement.</string>
+    <string name="experience_company_exomind_location">Rennes (35000)</string>
+    <string name="experience_company_marto">MarTo Development</string>
+    <string name="experience_desc_marto">En tant que développeur Android Freelance, j\'accompagne les entreprises locales dans la création d\'applications natives modernes et performantes. Je mets mon expertise Kotlin, Compose et architecture modulaire au service de projets concrets, de la conception à la mise en production avec CI/CD.</string>
+    <string name="experience_company_marto_location">Lyon (69000)</string>
+
+    <string name="experience_detail_title">Détail de l\'expérience</string>
+    <string name="experience_detail_projects_title">Projets Clés</string>
+    <string name="experience_detail_tasks_title">Tâches Principales</string>
+    <string name="experience_duration_months">%1$s mois</string>
+    <string name="experience_duration_year_months">%1$s an %2$s mois</string>
+    <string name="experience_present">Présent</string>
+
+    <string name="project_sodexo_title">Sodexo Pass Restaurant</string>
+    <string name="project_sodexo_desc">Modernisation majeure d\'une application legacy Java vers une architecture Kotlin MVVM robuste, améliorant la maintenabilité et l\'expérience utilisateur pour des milliers d\'utilisateurs.</string>
+    <string name="project_sodexo_task_refactor">Refactoring stratégique du code Java historique vers Kotlin + MVVM.</string>
+    <string name="project_sodexo_task_modernize">Réduction significative de la dette technique et modernisation de la base de code.</string>
+    <string name="project_sodexo_task_rebrand">Refonte complète de l\'UI/UX pour alignement avec le nouveau branding.</string>
+
+    <string name="project_tdf_title">Tour de France (Application Officielle)</string>
+    <string name="project_tdf_desc">Contribution aux applications officielles du Tour de France, enrichissant l\'expérience des fans avec des fonctionnalités innovantes et une interface modernisée.</string>
+    <string name="project_tdf_task_compose">Intégration pionnière de Jetpack Compose pour les nouveaux écrans interactifs.</string>
+    <string name="project_tdf_task_pip">Implémentation de fonctionnalités avancées : Picture-in-Picture (PiP) personalisé pour le lecteur vidéo.</string>
+    <string name="project_tdf_task_refactor">Migration progressive de la base de code Java vers Kotlin.</string>
+    <string name="project_tdf_task_features">Développement de nouvelles features engageantes pour les utilisateurs.</string>
+
+    <string name="project_dakar_title">Dakar Rally (Application Officielle)</string>
+    <string name="project_dakar_desc">Développement sur l\'application officielle du Dakar, basée sur une architecture Kotlin entièrement modulaire et performante.</string>
+    <string name="project_dakar_task_compose">Adoption de Jetpack Compose pour les interfaces des nouvelles fonctionnalités.</string>
+    <string name="project_dakar_task_gradle">Migration réussie de Gradle Groovy vers Gradle DSL pour une configuration de build optimisée.</string>
+    <string name="project_dakar_task_features">Implémentation de nouvelles fonctionnalités pour suivre la course en temps réel.</string>
+
+    <string name="project_total_title">Total Service (Application B2B)</string>
+    <string name="project_total_desc">Intervention sur une application complexe mêlant Java et Kotlin, axée sur la modernisation, la stabilisation et l\'amélioration des processus de déploiement.</string>
+    <string name="project_total_task_modernize">Lutte active contre la dette technique par la modernisation du code éxistant.</string>
+    <string name="project_total_task_doc">Rédaction et mise à jour de la documentation technique.</string>
+    <string name="project_total_task_archi">Nettoyage et clarification des architectures historiques multiples.</string>
+    <string name="project_total_task_db">Migration sécurisée de la base de données.</string>
+    <string name="project_total_task_cicd">Gestion et optimisation des pipelines CI/CD sur Azure DevOps.</string>
+
+    <string name="project_freelance_cheese_title">La Fromagerie (E-commerce PME)</string>
+    <string name="project_freelance_cheese_desc">Création d\'une application de boutique en ligne moderne et performante pour une fromagerie, entièrement en Jetpack Compose avec une architecture modulaire.</string>
+    <string name="project_freelance_cheese_task_archi">Utilisation de la clean arch entièrement modulaire pour garantir la qualité et la maintenabilité du code.</string>
+    <string name="project_freelance_cheese_task_compose">Interface utilisateur 100% Jetpack Compose.</string>
+    <string name="project_freelance_cheese_task_sdk">Intégration de SDK externes afin d\'ajouter de nouvelles features innovantes.</string>
+    <string name="project_freelance_cheese_task_pay">Ajout et maintenance d\'un système de paiement intégré utilisant Google Pay.</string>
+    <string name="project_freelance_cheese_task_cicd">Mise en place d\'une CI/CD complète avec TeamCity auto-hébergé et déploiement via Firebase App Distribution.</string>
+
+</resources>
