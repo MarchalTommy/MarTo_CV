@@ -1,22 +1,34 @@
 package com.example.martocv.ui.feature_about
 
+import android.content.Intent
 import androidx.annotation.StringRes
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Link
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SuggestionChip
@@ -30,9 +42,14 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.core.net.toUri
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.martocv.R
 import com.example.martocv.data.models.Hobby
@@ -99,7 +116,6 @@ private fun ErrorState(error: String) {
     )
 }
 
-@OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun AboutContent(
     personalInfo: PersonalInfo,
@@ -108,7 +124,6 @@ private fun AboutContent(
     modifier: Modifier = Modifier
 ) {
     val groupedSkills = skills.groupBy { it.category }
-    // État pour gérer l'affichage et le contenu du dialogue
     var showDialog by remember { mutableStateOf<DialogInfo?>(null) }
 
     Column(
@@ -122,55 +137,138 @@ private fun AboutContent(
         HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
         SkillsSection(
             groupedSkills = groupedSkills,
-            onSkillClick = { skill -> // Lambda pour gérer le clic sur une compétence
+            onSkillClick = { skill ->
                 showDialog = DialogInfo(skill.name, skill.descriptionResId)
             }
         )
         HorizontalDivider(modifier = Modifier.padding(vertical = 16.dp))
         HobbiesSection(
             hobbies = hobbies,
-            onHobbyClick = { hobby -> // Lambda pour gérer le clic sur un hobby
+            onHobbyClick = { hobby ->
                 showDialog = DialogInfo(hobby.name, hobby.descriptionResId)
             }
         )
         Spacer(modifier = Modifier.height(16.dp))
     }
 
-    // Afficher le dialogue si showDialog n'est pas null
     showDialog?.let { info ->
         InfoDialog(
             title = info.title,
             descriptionResId = info.descriptionResId,
-            onDismiss = { showDialog = null } // Masquer le dialogue lors du dismiss
+            onDismiss = { showDialog = null }
         )
     }
 }
 
 @Composable
 private fun PersonalInfoSection(personalInfo: PersonalInfo) {
-    Column(verticalArrangement = Arrangement.spacedBy(4.dp)) { // Reduced spacing within section
-        Text(
-            text = personalInfo.name,
-            style = MaterialTheme.typography.headlineMedium,
-            color = MaterialTheme.colorScheme.primary
+    val context = LocalContext.current
+
+    Box(
+        modifier = Modifier,
+        contentAlignment = Alignment.TopStart
+    ) {
+        Image(
+            painter = painterResource(id = R.drawable.profile),
+            contentDescription = "Photo de profil",
+            modifier = Modifier
+                .size(120.dp)
+                .clip(CircleShape)
+                .align(Alignment.TopEnd)
+                .border(2.dp, MaterialTheme.colorScheme.primary, CircleShape)
         )
-        Text(
-            text = personalInfo.title,
-            style = MaterialTheme.typography.titleLarge,
-            // Removed bottom padding, handled by Column spacing
-        )
-        Text(
-            text = personalInfo.summary,
-            style = MaterialTheme.typography.bodyLarge
-        )
+        Column(
+            modifier = Modifier.align(Alignment.TopStart).padding(top = 32.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            Text(
+                text = personalInfo.name,
+                style = MaterialTheme.typography.headlineMedium,
+                color = MaterialTheme.colorScheme.primary
+            )
+            Text(
+                text = personalInfo.title,
+                style = MaterialTheme.typography.titleLarge,
+                modifier = Modifier.padding(bottom = 8.dp)
+            )
+            Text(
+                text = personalInfo.summary,
+                style = MaterialTheme.typography.bodyLarge,
+                modifier = Modifier.padding(bottom = 16.dp)
+            )
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.clickable {
+                    val selector = Intent(Intent.ACTION_SENDTO)
+                    selector.data = "mailto:".toUri()
+
+                    val intent = Intent(Intent.ACTION_SEND).apply {
+                        putExtra(Intent.EXTRA_EMAIL, arrayOf("marchal.tommy@gmail.com"))
+                        putExtra(Intent.EXTRA_SUBJECT, "À propose de votre CV !")
+
+                    }
+                    intent.selector = selector
+
+                    context.startActivity(
+                        Intent.createChooser(
+                            intent,
+                            "Choisissez votre client mail préféré :"
+                        )
+                    )
+                }) {
+                Icon(
+                    painter = painterResource(R.drawable.mail_square),
+                    modifier = Modifier.size(32.dp),
+                    contentDescription = "Email",
+                    tint = MaterialTheme.colorScheme.primary
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+                Text("marchal.tommy@gmail.com")
+            }
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.clickable {
+                    val intent = Intent(
+                        Intent.ACTION_VIEW,
+                        "https://www.linkedin.com/in/marchal-t/".toUri()
+                    )
+                    context.startActivity(intent, null)
+                }) {
+                Icon(
+                    painter = painterResource(R.drawable.linkedin),
+                    modifier = Modifier.size(32.dp),
+                    contentDescription = "Linkedin",
+                    tint = MaterialTheme.colorScheme.primary
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+                Text("linkedin.com/in/marchal-t/")
+            }
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.clickable {
+                    val intent =
+                        Intent(Intent.ACTION_VIEW, "https://github.com/MarchalTommy".toUri())
+                    context.startActivity(intent, null)
+                }) {
+                Icon(
+                    painter = painterResource(R.drawable.github),
+                    modifier = Modifier.size(32.dp),
+                    contentDescription = "Email",
+                    tint = MaterialTheme.colorScheme.primary
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+                Text("github.com/MarchalTommy")
+            }
+        }
     }
+
 }
 
-@OptIn(ExperimentalLayoutApi::class, ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun SkillsSection(
     groupedSkills: Map<SkillCategory, List<Skill>>,
-    onSkillClick: (Skill) -> Unit // Ajout du paramètre pour le clic
+    onSkillClick: (Skill) -> Unit
 ) {
     Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
         groupedSkills.forEach { (category, skillList) ->
@@ -203,7 +301,7 @@ private fun SkillCategory.toTitle(): String = when (this) {
     SkillCategory.LANGUAGE -> "Langues"
 }
 
-@OptIn(ExperimentalLayoutApi::class, ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun HobbiesSection(
     hobbies: List<Hobby>,
