@@ -46,6 +46,7 @@ zxing-core = "3.5.2"
 zxing-android-embedded = "4.3.0"
 ksp = "2.1.10-1.0.31"
 firebase-crashlytics-buildtools = "3.0.3"
+ui-text-google-fonts = "1.7.8"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -184,6 +185,7 @@ mlkit-barcode = { group = "com.google.mlkit", name = "barcode-scanning", version
 zxing-core = { group = "com.google.zxing", name = "core", version.ref = "zxing-core" }
 zxing-android-embedded = { group = "com.journeyapps", name = "zxing-android-embedded", version.ref = "zxing-android-embedded" }
 firebase-crashlytics-buildtools = { group = "com.google.firebase", name = "firebase-crashlytics-buildtools", version.ref = "firebase-crashlytics-buildtools" }
+androidx-ui-text-google-fonts = { group = "androidx.compose.ui", name = "ui-text-google-fonts", version.ref = "ui-text-google-fonts" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

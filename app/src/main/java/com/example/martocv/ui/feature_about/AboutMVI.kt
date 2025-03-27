@@ -15,10 +15,10 @@ data class AboutState(
 
 // --- Intent ---
 sealed class AboutIntent {
-    object LoadData : AboutIntent()
+    data object LoadData : AboutIntent()
 }
 
-// --- Effect --- (Pour les actions ponctuelles comme afficher un Toast)
+// --- Effect ---
 sealed class AboutEffect {
     data class ShowError(val message: String) : AboutEffect()
 }

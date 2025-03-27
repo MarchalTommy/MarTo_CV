@@ -13,13 +13,12 @@ data class ExperienceState(
     }
 }
 
-// --- Event ---
-sealed interface ExperienceEvent {
-    data object LoadExperiences : ExperienceEvent
+// --- Intent ---
+sealed interface ExperienceIntent {
+    data object LoadExperiences : ExperienceIntent
 }
 
 // --- Effect ---
-// Peut être ajouté si des actions ponctuelles sont nécessaires (ex: Navigation, Toast)
-// sealed interface ExperienceEffect {
-//     data class ShowErrorToast(val message: String) : ExperienceEffect
-// }
+sealed interface ExperienceEffect {
+    data class ShowErrorToast(val message: String) : ExperienceEffect
+}

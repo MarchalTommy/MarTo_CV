@@ -15,12 +15,12 @@ class FormationViewModel(private val cvDataSource: CvDataSource) : ViewModel() {
     val state: StateFlow<FormationState> = _state.asStateFlow()
 
     init {
-        handleEvent(FormationEvent.LoadFormations)
+        handleEvent(FormationIntent.LoadFormations)
     }
 
-    fun handleEvent(event: FormationEvent) {
+    fun handleEvent(event: FormationIntent) {
         when (event) {
-            is FormationEvent.LoadFormations -> loadFormations()
+            is FormationIntent.LoadFormations -> loadFormations()
         }
     }
 

@@ -13,11 +13,12 @@ data class FormationState(
     }
 }
 
-// --- Event ---
-sealed interface FormationEvent {
-    data object LoadFormations : FormationEvent
+// --- Intent ---
+sealed interface FormationIntent {
+    data object LoadFormations : FormationIntent
 }
 
 // --- Effect ---
-// Ajouter si nécessaire
-// sealed interface FormationEffect { ... }
+sealed interface FormationEffect {
+    data class ShowErrorToast(val message: String) : FormationEffect
+}

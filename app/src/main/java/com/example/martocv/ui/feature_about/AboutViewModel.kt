@@ -2,7 +2,7 @@ package com.example.martocv.ui.feature_about
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.martocv.data.source.CvDataSource // Importez votre fonction de données
+import com.example.martocv.data.source.CvDataSource
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow

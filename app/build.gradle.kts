@@ -70,6 +70,7 @@ dependencies {
     // Coil
     implementation(libs.coil.compose)
     implementation(libs.firebase.crashlytics.buildtools)
+    implementation(libs.androidx.ui.text.google.fonts)
 
     // Tests
     testImplementation(libs.junit)

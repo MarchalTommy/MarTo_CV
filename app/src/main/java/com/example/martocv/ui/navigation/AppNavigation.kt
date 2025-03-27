@@ -2,7 +2,7 @@ package com.example.martocv.ui.navigation
 
 import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.layout.consumeWindowInsets
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
@@ -22,12 +22,11 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import androidx.navigation.serialization.generateRouteWithArgs
 import androidx.navigation.toRoute
-import com.example.martocv.ui.feature_about.AboutScreen
-import com.example.martocv.ui.feature_experience.ExperienceDetailScreen
-import com.example.martocv.ui.feature_experience.ExperienceScreen
-import com.example.martocv.ui.feature_formation.FormationScreen
+import com.example.martocv.ui.feature_about.screen.AboutScreen
+import com.example.martocv.ui.feature_experience.screen.ExperienceDetailScreen
+import com.example.martocv.ui.feature_experience.screen.ExperienceScreen
+import com.example.martocv.ui.feature_formation.screen.FormationScreen
 import kotlinx.serialization.Serializable
 
 val bottomNavItems = listOf(
@@ -42,7 +41,7 @@ fun AppNavigation() {
 
     Scaffold(
         bottomBar = {
-            NavigationBar {
+            NavigationBar(modifier = Modifier) {
                 val navBackStackEntry by navController.currentBackStackEntryAsState()
                 val currentDestination = navBackStackEntry?.destination
 
@@ -94,8 +93,9 @@ fun AppNavigation() {
             navController = navController,
             startDestination = BaseScreen.AboutDestination,
             modifier = Modifier
+                // Appliquer UNIQUEMENT le padding fourni par Scaffold
                 .padding(innerPadding)
-                .consumeWindowInsets(innerPadding),
+                .fillMaxSize(), // Bonne pratique,
             enterTransition = {
                 slideIntoContainer(
                     AnimatedContentTransitionScope.SlideDirection.Start,

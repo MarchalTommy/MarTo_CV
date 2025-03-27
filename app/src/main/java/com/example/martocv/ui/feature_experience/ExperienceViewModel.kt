@@ -15,12 +15,12 @@ class ExperienceViewModel(private val cvDataSource: CvDataSource) : ViewModel() 
     val state: StateFlow<ExperienceState> = _state.asStateFlow()
 
     init {
-        handleEvent(ExperienceEvent.LoadExperiences)
+        handleEvent(ExperienceIntent.LoadExperiences)
     }
 
-    fun handleEvent(event: ExperienceEvent) {
+    fun handleEvent(event: ExperienceIntent) {
         when (event) {
-            is ExperienceEvent.LoadExperiences -> loadExperiences()
+            is ExperienceIntent.LoadExperiences -> loadExperiences()
         }
     }
 
