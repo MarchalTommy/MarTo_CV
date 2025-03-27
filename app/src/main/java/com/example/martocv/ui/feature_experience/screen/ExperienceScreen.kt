@@ -1,12 +1,12 @@
 package com.example.martocv.ui.feature_experience.screen
 
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
@@ -31,24 +31,22 @@ fun ExperienceScreen(
     val state by viewModel.state.collectAsStateWithLifecycle()
     val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior(rememberTopAppBarState())
 
-    Scaffold(
+    Column(
         modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
-        topBar = {
-            TopAppBar(title = {
-                Text(
-                    text = "Expériences Professionnelles",
-                    style = MaterialTheme.typography.displaySmall
-                )
-            },
-                expandedHeight = 128.dp,
-                scrollBehavior = scrollBehavior
+
+    ) {
+        TopAppBar(title = {
+            Text(
+                text = "Expériences Professionnelles",
+                style = MaterialTheme.typography.displaySmall
             )
-        }
-    ) { paddingValues ->
+        },
+            expandedHeight = 128.dp,
+            scrollBehavior = scrollBehavior
+        )
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(paddingValues)
                 .padding(horizontal = 16.dp),
             contentAlignment = Alignment.Center
         ) {

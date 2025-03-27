@@ -45,7 +45,7 @@ fun AboutContent(
         modifier = modifier
             .fillMaxWidth()
             .padding(top = 16.dp),
-        verticalArrangement = Arrangement.spacedBy(24.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp),
         state = lazyState
     ) {
         stickyHeader {
@@ -61,13 +61,14 @@ fun AboutContent(
             Spacer(
                 Modifier
                     .fillMaxWidth()
-                    .height(32.dp)
+                    .height(16.dp)
                     .background(
                         brush = Brush.verticalGradient(
                             colors = listOf(
                                 backgroundColor,
                                 Color.Transparent
-                            )
+                            ),
+                            startY = 0.5f
                         )
                     )
             )
